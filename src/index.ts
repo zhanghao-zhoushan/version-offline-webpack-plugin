@@ -38,6 +38,7 @@ interface Options {
      * 压缩配置
      */
     zipConfig: archiver.ArchiverOptions | undefined;
+    version: string; // 版本号 index.html => index.0.0.1.html
 }
 
 const PLUGIN_NAME = 'DMOfflineWebpackPlugin';
@@ -136,10 +137,17 @@ class ZAOfflineWebpackPlugin {
             this.message('error', srcDir + ' 不存在');
             return;
         }
+        if (this.options.version) {
+            this.message('success', '当前版本为：' + this.options.version);
+        }
         let zipFiles = klawSync(srcDir, { nodir: true });
         zipFiles.forEach((item) => {
-            // console.log('文件路径：'+item.path)
-            archive.file(item.path, { name: path.relative(this.options.src, item.path) });
+            // console.log('文件路径：' + item.path);
+            let targetPath = path.relative(this.options.src, item.path);
+            if (targetPath.indexOf('index.html') > -1 && this.options.version) {
+                targetPath = targetPath.replace('index.html', `index.${this.options.version}.html`);
+            }
+            archive.file(item.path, { name: targetPath });
         });
         archive.pipe(output);
         archive.finalize();
