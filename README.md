@@ -1,11 +1,11 @@
-# za-offline-webpack-plugin
+# version-offline-webpack-plugin
 
 把目录打包成离线缓存要求的目录结构
 
 ### 安装
 
 ```bash
-npm install -D za-offline-webpack-plugin
+npm install -D version-offline-webpack-plugin
 ```
 
 ### 使用
@@ -13,7 +13,7 @@ npm install -D za-offline-webpack-plugin
 在你的 webpack 配置中追加一个 plugin：
 
 ```js
-const { ZAOfflineWebpackPlugin } = require('za-offline-webpack-plugin');
+const { ZAOfflineWebpackPlugin } = require('version-offline-webpack-plugin');
 
 new ZAOfflineWebpackPlugin({
     // 源目标，默认dist

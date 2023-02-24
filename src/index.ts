@@ -161,7 +161,7 @@ class ZAOfflineWebpackPlugin {
             error: chalk.red,
         };
 
-        console.log(chalkFuc[type](`[za-offline-webpack-plugin]  ${msg}`));
+        console.log(chalkFuc[type](`[version-offline-webpack-plugin]  ${msg}`));
     }
 }
 
