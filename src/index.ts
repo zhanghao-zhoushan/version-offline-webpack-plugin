@@ -45,7 +45,7 @@ const PLUGIN_NAME = 'DMOfflineWebpackPlugin';
 
 const cwd = process.cwd();
 
-class ZAOfflineWebpackPlugin {
+class OfflineWebpackPlugin {
     options: Required<Options>;
 
     constructor(options: Options) {
@@ -165,4 +165,4 @@ class ZAOfflineWebpackPlugin {
     }
 }
 
-export { ZAOfflineWebpackPlugin };
+export default OfflineWebpackPlugin;
