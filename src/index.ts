@@ -143,7 +143,7 @@ class OfflineWebpackPlugin {
         let zipFiles = klawSync(srcDir, { nodir: true });
         zipFiles.forEach((item) => {
             // console.log('文件路径：' + item.path);
-            let targetPath = path.relative(this.options.src, item.path);
+            let targetPath = path.relative(srcDir, item.path);
             if (targetPath.indexOf('index.html') > -1 && this.options.version) {
                 targetPath = targetPath.replace('index.html', `index.${this.options.version}.html`);
             }
